@@ -14,7 +14,7 @@
     </parent>
     <groupId>com.jw</groupId>
     <artifactId>jw-pet-clinic</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>jw-pet-clinic</name>
     <description>Spring pet clinic</description>
     <properties>
