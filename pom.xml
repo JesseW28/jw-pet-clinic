@@ -24,12 +24,24 @@
     <dependencies>
     </dependencies>
 
+    <scm>
+        <developerConnection>scm:git:[git@github.com:JesseW28/jw-pet-clinic.git]</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
     <build>
         <pluginManagement>
             <plugins>
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <configuration>
+                        <goals>install</goals>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
