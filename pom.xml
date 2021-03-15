@@ -25,6 +25,7 @@
 
     <scm>
         <developerConnection>scm:git:ssh://git@github.com:JesseW28/jw-pet-clinic.git</developerConnection>
+        <connection>scm:git:ssh://git@github.com:JesseW28/jw-pet-clinic.git</connection>
         <tag>jw-pet-clinic-0.0.1</tag>
     </scm>
 
