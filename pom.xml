@@ -24,7 +24,7 @@
     </dependencies>
 
     <scm>
-        <developerConnection>scm:git:[git@github.com:JesseW28/jw-pet-clinic.git]</developerConnection>
+        <developerConnection>scm:git:ssh://git@github.com:JesseW28/jw-pet-clinic.git</developerConnection>
         <tag>jw-pet-clinic-0.0.1</tag>
     </scm>
 
