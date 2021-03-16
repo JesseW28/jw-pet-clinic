@@ -1,4 +1,6 @@
 package com.jw.jwpetclinic.services;
 
-public interface PetService {
+import com.jw.jwpetclinic.model.Pet;
+
+public interface PetService extends CrudService<Pet> {
 }
