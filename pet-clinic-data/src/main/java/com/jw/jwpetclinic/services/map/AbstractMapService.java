@@ -1,31 +1,44 @@
 package com.jw.jwpetclinic.services.map;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import com.jw.jwpetclinic.model.BaseEntity;
+import com.jw.jwpetclinic.services.CrudService;
 
-public abstract class AbstractMapService<T, ID> {
+import java.util.*;
 
-    protected Map<ID, T> map = new HashMap<>();
+public abstract class AbstractMapService<T extends BaseEntity> implements CrudService<T> {
 
-    Set<T> findAll(){
+    protected Map<Long, T> map = new HashMap<>();
+
+    @Override
+    public Set<T> findAll() {
         return new HashSet<>(map.values());
     }
 
-    T findById(ID id) {
+    @Override
+    public T findById(Long id) {
         return map.get(id);
     }
 
-    T save(ID id,T entity) {
-        return map.put(id, entity);
+    @Override
+    public T save(T entity) {
+        if (entity.getId() == null) {
+            entity.setId(getNextId());
+        }
+        map.put(entity.getId(), entity);
+        return entity;
     }
 
-    void deleteById(ID id){
+    @Override
+    public void deleteById(Long id) {
         map.remove(id);
     }
 
-    void delete(T entity) {
+    @Override
+    public void delete(T entity) {
         map.entrySet().removeIf(entry -> entry.getValue().equals(entity));
+    }
+
+    private Long getNextId() {
+        return map.keySet().isEmpty() ? 1L : Collections.max(map.keySet()) + 1;
     }
 }

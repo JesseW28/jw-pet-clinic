@@ -2,7 +2,7 @@ package com.jw.jwpetclinic.services;
 
 import com.jw.jwpetclinic.model.Owner;
 
-public interface OwnerService extends CrudService<Owner, Long> {
+public interface OwnerService {
 
     Owner findByLastName(String lastName);
 }

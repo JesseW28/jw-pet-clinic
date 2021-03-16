@@ -4,9 +4,9 @@ import com.jw.jwpetclinic.model.BaseEntity;
 
 import java.util.Set;
 
-public interface CrudService<T extends BaseEntity, ID> {
+public interface CrudService<T extends BaseEntity> {
 
-    T findById(ID id);
+    T findById(Long id);
 
     T save(T entity);
 
@@ -14,5 +14,5 @@ public interface CrudService<T extends BaseEntity, ID> {
 
     void delete (T entity);
 
-    void deleteById(ID id);
+    void deleteById(Long id);
 }
