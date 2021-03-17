@@ -4,6 +4,7 @@ import com.jw.jwpetclinic.model.BaseEntity;
 import com.jw.jwpetclinic.services.CrudService;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public abstract class AbstractMapService<T extends BaseEntity> implements CrudService<T> {
 
@@ -24,12 +25,17 @@ public abstract class AbstractMapService<T extends BaseEntity> implements CrudSe
         if (entity == null){
             throw new IllegalArgumentException("Entity cannot be null.");
         }
-        else if (entity.getId() == null) {
+        if (entity.getId() == null) {
             entity.setId(getNextId());
         }
         map.put(entity.getId(), entity);
 
         return entity;
+    }
+
+    @Override
+    public List<T> saveAll(List<T> entities) {
+        return entities.stream().map(this::save).collect(Collectors.toList());
     }
 
     @Override
@@ -42,7 +48,7 @@ public abstract class AbstractMapService<T extends BaseEntity> implements CrudSe
         map.entrySet().removeIf(entry -> entry.getValue().equals(entity));
     }
 
-    private Long getNextId() {
+    protected Long getNextId() {
         return map.keySet().isEmpty() ? 1L : Collections.max(map.keySet()) + 1;
     }
 }
