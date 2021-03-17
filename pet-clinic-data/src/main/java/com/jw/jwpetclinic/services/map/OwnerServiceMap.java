@@ -32,9 +32,7 @@ public class OwnerServiceMap extends AbstractMapService<Owner> implements OwnerS
         }
         savePets(owner);
 
-        map.put(owner.getId(), owner);
-
-        return owner;
+        return super.save(owner);
 
     }
 
