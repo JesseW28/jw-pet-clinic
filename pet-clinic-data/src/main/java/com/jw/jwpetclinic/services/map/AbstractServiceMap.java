@@ -6,7 +6,7 @@ import com.jw.jwpetclinic.services.CrudService;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public abstract class AbstractMapService<T extends BaseEntity> implements CrudService<T> {
+public abstract class AbstractServiceMap<T extends BaseEntity> implements CrudService<T> {
 
     protected Map<Long, T> map = new HashMap<>();
 
