@@ -48,7 +48,7 @@ public class DataLoader implements CommandLineRunner {
 
         System.out.println("Loaded pet types...");
 
-        Owner owner1 = new Owner("Jesse", "Wouters");
+        Owner owner1 = Owner.builder().firstName("Jesse").lastName("Wouters").build();
         owner1.setAddress("Lange weg 32");
         owner1.setCity("Rotterdam");
         owner1.setTelephone("0645364856");
@@ -59,7 +59,7 @@ public class DataLoader implements CommandLineRunner {
         jessePet.setBirthDate(LocalDate.now());
         owner1.getPets().add(jessePet);
 
-        Owner owner2 = new Owner("Karel", "Jansen");
+        Owner owner2 = Owner.builder().firstName("Karel").lastName("Jansen").build();
         owner2.setAddress("Breedneude 12");
         owner2.setCity("Groningen");
         owner2.setTelephone("0645365856");
@@ -78,9 +78,9 @@ public class DataLoader implements CommandLineRunner {
         Specialty dentistry = new Specialty("dentistry");
         Specialty surgery = new Specialty("surgery");
 
-        Vet vet = new Vet("Peter", "Hoogeland");
+        Vet vet = Vet.builder().firstName("Peter").lastName("Hoogeland").build();
         vet.getSpecialties().add(specialtyService.save(radiology));
-        Vet vet2 = new Vet("Jan", "Breugeman");
+        Vet vet2 =  Vet.builder().firstName("Jan").lastName("Breugeman").build();
         vet2.getSpecialties().add(specialtyService.save(surgery));
 
         vetService.saveAll(Arrays.asList(vet, vet2));
@@ -95,5 +95,7 @@ public class DataLoader implements CommandLineRunner {
         Visit jessePetVisit = new Visit();
         jessePetVisit.setPet(jessePet);
         jessePetVisit.setDescription("Tooth removal");
+
+        visitService.saveAll(Arrays.asList(karelPetVisit, jessePetVisit));
     }
 }

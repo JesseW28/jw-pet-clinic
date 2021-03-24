@@ -6,6 +6,8 @@ import com.jw.jwpetclinic.services.OwnerService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @Profile("jpa")
 public class OwnerServiceJpa extends AbstractServiceJpa<Owner, OwnerRepository> implements OwnerService {
@@ -18,7 +20,7 @@ public class OwnerServiceJpa extends AbstractServiceJpa<Owner, OwnerRepository> 
     }
 
     @Override
-    public Owner findByLastName(String lastName) {
+    public Optional<Owner> findByLastName(String lastName) {
         return repository.findByLastName(lastName);
     }
 

@@ -8,6 +8,8 @@ import com.jw.jwpetclinic.services.PetTypeService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @Profile({"default", "map"})
 public class OwnerServiceMap extends AbstractServiceMap<Owner> implements OwnerService {
@@ -21,8 +23,10 @@ public class OwnerServiceMap extends AbstractServiceMap<Owner> implements OwnerS
     }
 
     @Override
-    public Owner findByLastName(String lastName) {
-        return null;
+    public Optional<Owner> findByLastName(String lastName) {
+        return findAll().stream()
+                .filter(owner -> owner.getLastName().equals(lastName))
+                .findFirst();
     }
 
     @Override
