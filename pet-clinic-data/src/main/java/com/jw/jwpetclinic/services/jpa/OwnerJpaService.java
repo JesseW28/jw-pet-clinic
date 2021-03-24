@@ -10,11 +10,11 @@ import java.util.Optional;
 
 @Service
 @Profile("jpa")
-public class OwnerServiceJpa extends AbstractServiceJpa<Owner, OwnerRepository> implements OwnerService {
+public class OwnerJpaService extends AbstractJpaService<Owner, OwnerRepository> implements OwnerService {
 
     private final OwnerRepository repository;
 
-    public OwnerServiceJpa(OwnerRepository repository) {
+    public OwnerJpaService(OwnerRepository repository) {
         super(repository);
         this.repository = repository;
     }

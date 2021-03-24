@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Profile("jpa")
-public class VisitServiceJpa extends AbstractServiceJpa<Visit, VisitRepository> implements VisitService {
+public class VisitJpaService extends AbstractJpaService<Visit, VisitRepository> implements VisitService {
 
     private final VisitRepository repository;
 
-    public VisitServiceJpa(VisitRepository repository) {
+    public VisitJpaService(VisitRepository repository) {
         super(repository);
         this.repository = repository;
     }

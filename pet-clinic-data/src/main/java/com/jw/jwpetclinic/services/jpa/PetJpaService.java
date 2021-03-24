@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Profile("jpa")
-public class PetServiceJpa extends AbstractServiceJpa<Pet, PetRepository> implements PetService {
+public class PetJpaService extends AbstractJpaService<Pet, PetRepository> implements PetService {
 
     private final PetRepository repository;
 
-    public PetServiceJpa(PetRepository repository) {
+    public PetJpaService(PetRepository repository) {
         super(repository);
         this.repository = repository;
     }

@@ -12,12 +12,12 @@ import java.util.Optional;
 
 @Service
 @Profile({"default", "map"})
-public class OwnerServiceMap extends AbstractServiceMap<Owner> implements OwnerService {
+public class OwnerMapService extends AbstractMapService<Owner> implements OwnerService {
 
     private final PetTypeService petTypeService;
     private final PetService petService;
 
-    public OwnerServiceMap(PetTypeService petTypeService, PetService petService) {
+    public OwnerMapService(PetTypeService petTypeService, PetService petService) {
         this.petTypeService = petTypeService;
         this.petService = petService;
     }

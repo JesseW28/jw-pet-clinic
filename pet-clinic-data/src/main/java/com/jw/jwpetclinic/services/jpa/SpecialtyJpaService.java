@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Profile("jpa")
-public class SpecialtyServiceJpa extends AbstractServiceJpa<Specialty, SpecialtyRepository> implements SpecialtyService {
+public class SpecialtyJpaService extends AbstractJpaService<Specialty, SpecialtyRepository> implements SpecialtyService {
 
     private final SpecialtyRepository repository;
 
-    public SpecialtyServiceJpa(SpecialtyRepository repository) {
+    public SpecialtyJpaService(SpecialtyRepository repository) {
         super(repository);
         this.repository = repository;
     }

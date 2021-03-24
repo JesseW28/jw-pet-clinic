@@ -8,11 +8,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public abstract class AbstractServiceJpa<T extends BaseEntity, R extends EntityRepository<T>> implements CrudService<T> {
+public abstract class AbstractJpaService<T extends BaseEntity, R extends EntityRepository<T>> implements CrudService<T> {
 
     private final R repository;
 
-    protected AbstractServiceJpa(R repository) {
+    protected AbstractJpaService(R repository) {
         this.repository = repository;
     }
 
