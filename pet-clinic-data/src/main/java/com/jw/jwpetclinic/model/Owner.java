@@ -41,4 +41,8 @@ public class Owner extends Person {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets = new HashSet<>();
 
+
+    public Pet getPet(String name){
+        return pets.stream().filter(pet -> pet.getName().equals(name)).findFirst().orElse(null);
+    }
 }
